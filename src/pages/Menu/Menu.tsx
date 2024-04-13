@@ -46,6 +46,7 @@ function Menu() {
 				<Search
 					placeholder='Введите блюдо или состав'
 					onChange={updateFilter}
+					isValid={true}
 				/>
 			</div>
 			<div>

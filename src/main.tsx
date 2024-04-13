@@ -1,9 +1,7 @@
-import axios from 'axios'
 import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Provider } from 'react-redux'
-import { RouterProvider, createBrowserRouter, defer } from 'react-router-dom'
-import { PREFIX } from './helpers/API.ts'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import './index.css'
 import { AuthLayout } from './layout/Auth/AuthLayout.tsx'
 import { Layout } from './layout/Layout/Layout.tsx'
@@ -41,14 +39,6 @@ const router = createBrowserRouter([
 			{
 				path: '/product/:id',
 				element: <Product />,
-				errorElement: <>Ошибка</>,
-				loader: async ({ params }) => {
-					return defer({
-						data: axios
-							.get(`${PREFIX}/products/${params.id}`)
-							.then(data => data),
-					})
-				},
 			},
 		],
 	},
